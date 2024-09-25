@@ -26,6 +26,12 @@
       "languageVersion": "3.0"
     },
     {
+      "name": "another_flutter_splash_screen",
+      "rootUri": "file:///C:/Users/User/AppData/Local/Pub/Cache/hosted/pub.dev/another_flutter_splash_screen-1.2.1",
+      "packageUri": "lib/",
+      "languageVersion": "2.18"
+    },
+    {
       "name": "args",
       "rootUri": "file:///C:/Users/User/AppData/Local/Pub/Cache/hosted/pub.dev/args-2.5.0",
       "packageUri": "lib/",
@@ -494,7 +500,7 @@
       "languageVersion": "3.5"
     }
   ],
-  "generated": "2024-09-25T07:54:35.557863Z",
+  "generated": "2024-09-25T09:00:30.872431Z",
   "generator": "pub",
   "generatorVersion": "3.5.3",
   "flutterRoot": "file:///C:/Users/User/Downloads/flutter",
