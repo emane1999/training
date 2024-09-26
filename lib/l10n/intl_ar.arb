@@ -1,0 +1,9 @@
+{
+  "@@locale": "ar",
+  "chooseLanguageTitle": "Choose Your Language",
+  "@chooseLanguageTitle": {
+    "description": "Title for the Choose Language screen"
+  },
+  "title": "القران الكريم",
+  "assalamualaikum": "السلام عليكم"
+}

@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:training/generated/l10n.dart';
+import 'package:training/theme_provider/applanguagenotifier.dart';
 import 'package:training/theme_provider/themeproivders.dart';
 
 class MainScreen extends ConsumerStatefulWidget {
@@ -12,6 +14,8 @@ class MainScreen extends ConsumerStatefulWidget {
 class _MainScreenState extends ConsumerState<MainScreen> {
   @override
   Widget build(BuildContext context) {
+    final notifier = ref.watch(appLanguageNotifierProvider);
+
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
@@ -33,6 +37,50 @@ class _MainScreenState extends ConsumerState<MainScreen> {
               },
               icon: (Icon(Icons.light_mode)),
             ),
+
+            Text(
+              S.of(context)!.chooseLanguageTitle,
+              style: Theme.of(context).textTheme.headlineLarge,
+            ),
+            const SizedBox(height: 20),
+            FilledButton(
+              onPressed: () => ref
+                  .read(appLanguageNotifierProvider.notifier)
+                  .changeLanguage(Locale('en')),
+              style: FilledButton.styleFrom(
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(5.0),
+                ),
+                minimumSize: const Size(double.infinity, 50),
+              ),
+              child: Text(
+                'English',
+                style: Theme.of(context).textTheme.titleMedium?.copyWith(
+                      color: Colors.white,
+                    ),
+                textAlign: TextAlign.center,
+              ),
+            ),
+            const SizedBox(height: 10),
+            FilledButton(
+              onPressed: () => ref
+                  .read(appLanguageNotifierProvider.notifier)
+                  .changeLanguage(Locale('ar')),
+              style: FilledButton.styleFrom(
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(5.0),
+                ),
+                minimumSize: const Size(double.infinity, 50),
+              ),
+              child: Text(
+                'Ar',
+                style: Theme.of(context).textTheme.titleMedium?.copyWith(
+                      color: Colors.white,
+                    ),
+                textAlign: TextAlign.center,
+              ),
+            ),
+
             // ElevatedButton(
             //   onPressed: () {
             // //     ref.read(appThemeProvider.notifier).toggleTheme();

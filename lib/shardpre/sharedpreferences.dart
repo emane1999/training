@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class ThemingSer {
-  late SharedPreferences? _prefs;
+  static SharedPreferences? _prefs;
   static ThemingSer? _instance;
   static const _themeKey = 'theme';
   ThemingSer._();
@@ -15,7 +15,7 @@ class ThemingSer {
     return _instance!;
   }
 
-  ensureInitialized() async {
+  static ensureInitialized() async {
     _prefs ??= await SharedPreferences.getInstance();
     _instance ??= ThemingSer._();
   }
