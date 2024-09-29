@@ -39,7 +39,7 @@ class _MainScreenState extends ConsumerState<MainScreen> {
             ),
 
             Text(
-              S.of(context)!.chooseLanguageTitle,
+              S.of(context)!.assalamualaikum,
               style: Theme.of(context).textTheme.headlineLarge,
             ),
             const SizedBox(height: 20),
