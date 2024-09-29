@@ -13,7 +13,7 @@ class AppLanguageNotifier extends _$AppLanguageNotifier {
   }
 
   Future<void> fetchLocale() async {
-    var prefs = await SharedPreferences.getInstance();
+    SharedPreferences prefs = await SharedPreferences.getInstance();
     String? languageCode = prefs.getString('language_code');
     if (languageCode != null) {
       state = Locale(languageCode);
@@ -21,7 +21,7 @@ class AppLanguageNotifier extends _$AppLanguageNotifier {
   }
 
   Future<void> changeLanguage(Locale type) async {
-    var prefs = await SharedPreferences.getInstance();
+    SharedPreferences prefs = await SharedPreferences.getInstance();
     if (state != type) {
       state = type;
       await prefs.setString('language_code', type.languageCode);
