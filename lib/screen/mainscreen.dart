@@ -1,7 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:training/api/api_service.dart';
+import 'package:training/api/constant.dart';
 import 'package:training/generated/l10n.dart';
+import 'package:training/modul/pretty_face.dart';
 import 'package:training/theme_provider/applanguagenotifier.dart';
+import 'package:training/theme_provider/makeapirequest.dart';
 import 'package:training/theme_provider/themeproivders.dart';
 
 class MainScreen extends ConsumerStatefulWidget {
@@ -15,6 +19,8 @@ class _MainScreenState extends ConsumerState<MainScreen> {
   @override
   Widget build(BuildContext context) {
     final notifier = ref.watch(appLanguageNotifierProvider);
+
+    final perrty = ref.watch(getApiRequestProvider);
 
     return Scaffold(
       appBar: AppBar(
@@ -44,9 +50,11 @@ class _MainScreenState extends ConsumerState<MainScreen> {
             ),
             const SizedBox(height: 20),
             FilledButton(
-              onPressed: () => ref
-                  .read(appLanguageNotifierProvider.notifier)
-                  .changeLanguage(Locale('en')),
+              onPressed: () {
+                ref
+                    .read(appLanguageNotifierProvider.notifier)
+                    .changeLanguage(Locale('en'));
+              },
               style: FilledButton.styleFrom(
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(5.0),
@@ -74,6 +82,29 @@ class _MainScreenState extends ConsumerState<MainScreen> {
               ),
               child: Text(
                 'Ar',
+                style: Theme.of(context).textTheme.titleMedium?.copyWith(
+                      color: Colors.white,
+                    ),
+                textAlign: TextAlign.center,
+              ),
+            ),
+            Text(
+              "${perrty.value?.face}",
+              style: Theme.of(context).textTheme.headlineLarge,
+            ),
+            const SizedBox(height: 10),
+            FilledButton(
+              onPressed: () {
+                ref.refresh(getApiRequestProvider.future);
+              },
+              style: FilledButton.styleFrom(
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(5.0),
+                ),
+                minimumSize: const Size(double.infinity, 50),
+              ),
+              child: Text(
+                'Api requst',
                 style: Theme.of(context).textTheme.titleMedium?.copyWith(
                       color: Colors.white,
                     ),

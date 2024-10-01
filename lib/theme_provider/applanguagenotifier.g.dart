@@ -7,7 +7,7 @@ part of 'applanguagenotifier.dart';
 // **************************************************************************
 
 String _$appLanguageNotifierHash() =>
-    r'91d546982aa6a82af2001702eab8960a8f6cab66';
+    r'30610a001bbf72102e84cb73e9f1aea788ea25ca';
 
 /// See also [AppLanguageNotifier].
 @ProviderFor(AppLanguageNotifier)
