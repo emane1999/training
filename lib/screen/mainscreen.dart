@@ -1,5 +1,7 @@
+import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:go_router/go_router.dart';
 import 'package:training/api/api_service.dart';
 import 'package:training/api/constant.dart';
 import 'package:training/generated/l10n.dart';
@@ -9,7 +11,8 @@ import 'package:training/theme_provider/makeapirequest.dart';
 import 'package:training/theme_provider/themeproivders.dart';
 
 class MainScreen extends ConsumerStatefulWidget {
-  const MainScreen({super.key});
+  String id;
+  MainScreen({super.key, required this.id});
 
   @override
   ConsumerState<MainScreen> createState() => _MainScreenState();
@@ -88,9 +91,11 @@ class _MainScreenState extends ConsumerState<MainScreen> {
                 textAlign: TextAlign.center,
               ),
             ),
-            Text(
-              "${perrty.value?.face}",
+
+            AutoSizeText(
+              "${perrty.value?.toString()}",
               style: Theme.of(context).textTheme.headlineLarge,
+              maxLines: 2,
             ),
             const SizedBox(height: 10),
             FilledButton(
@@ -105,6 +110,24 @@ class _MainScreenState extends ConsumerState<MainScreen> {
               ),
               child: Text(
                 'Api requst',
+                style: Theme.of(context).textTheme.titleMedium?.copyWith(
+                      color: Colors.white,
+                    ),
+                textAlign: TextAlign.center,
+              ),
+            ),
+            FilledButton(
+              onPressed: () {
+                context.go('/splash_screen/botton_route');
+              },
+              style: FilledButton.styleFrom(
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(5.0),
+                ),
+                minimumSize: const Size(double.infinity, 50),
+              ),
+              child: Text(
+                'Hi ,${widget.id}',
                 style: Theme.of(context).textTheme.titleMedium?.copyWith(
                       color: Colors.white,
                     ),

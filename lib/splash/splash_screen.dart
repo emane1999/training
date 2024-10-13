@@ -1,5 +1,7 @@
 import 'package:another_flutter_splash_screen/another_flutter_splash_screen.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
+import 'package:training/screen/botton_route.dart';
 import 'package:training/screen/mainscreen.dart';
 
 class SplashScreen extends StatefulWidget {
@@ -16,10 +18,12 @@ class _SplashScreenState extends State<SplashScreen> {
     // Simulate a time-consuming task (e.g., loading data) for the splash screen.
     // Replace this with your actual data loading logic.
     Future.delayed(
-      Duration(seconds: 2),
+      Duration(seconds: 1),
       () {
-        Navigator.pushReplacement(
-            context, MaterialPageRoute(builder: (context) => MainScreen()));
+        context.go('/splash_screen/mainscreen/:id');
+        //  MainScreen(
+        //       id: "wecome",
+        //     ));
       },
     );
   }
