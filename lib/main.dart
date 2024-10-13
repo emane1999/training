@@ -24,7 +24,9 @@ class MyApp extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final appThemeMode = ref.watch(themeNotifierProvider);
     final appLocale = ref.watch(appLanguageNotifierProvider);
+
     return MaterialApp.router(
+      debugShowCheckedModeBanner: false,
       routerConfig: _router,
       title: 'Flutter Demo',
       theme: AppTheme.lightMode,
